@@ -3,17 +3,20 @@ body {
     font-family: 'Orbitron', sans-serif;
     margin: 0;
     padding: 0;
-    background: black;
     color: #00ff00;
     overflow-x: hidden;
     position: relative;
+    background: url('https://images.unsplash.com/photo-1581092338245-26aa73b1c2e4?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+    background-size: cover;
 }
 
-/* Hacker Matrix Canvas */
-canvas#matrix {
+/* Dark overlay */
+body::before {
+    content: '';
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
     z-index: -1;
 }
 
@@ -22,7 +25,7 @@ canvas#matrix {
     position: fixed;
     top: 20px;
     right: 20px;
-    background: #111;
+    background: rgba(0,0,0,0.7);
     color: #00ff00;
     padding: 10px;
     border-radius: 50%;
@@ -44,9 +47,7 @@ header {
     z-index: 999;
 }
 
-header h1 {
-    margin: 0;
-}
+header h1 { margin: 0; }
 
 nav ul {
     list-style: none;
@@ -62,32 +63,23 @@ nav ul li a {
     font-weight: bold;
 }
 
-.menu-toggle {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
-}
+.menu-toggle { display: none; font-size: 28px; cursor: pointer; }
 
 /* Sections */
 section {
     padding: 80px 20px;
     text-align: center;
     animation: fadeIn 1s ease-in;
+    background: rgba(0,0,0,0.6);
+    margin: 20px auto;
+    border-radius: 10px;
 }
 
-section h2 {
-    margin-bottom: 20px;
-    font-size: 2em;
-}
+section h2 { margin-bottom: 20px; font-size: 2em; }
 
-section ul {
-    list-style: none;
-    padding: 0;
-}
+section ul { list-style: none; padding: 0; }
 
-section ul li {
-    margin: 10px 0;
-}
+section ul li { margin: 10px 0; }
 
 /* Projects */
 .project-list {
@@ -101,8 +93,68 @@ section ul li {
     background: rgba(0,0,0,0.7);
     padding: 20px;
     border-radius: 10px;
-    width: 250px;
+    width: 300px;
     box-shadow: 0 0 20px #00ff00;
+    transition: transform 0.3s;
+}
+
+.project:hover { transform: scale(1.05); }
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    background: #00ff00;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover { background: #00cc00; }
+
+/* Mini Bot iframe */
+.mini-bot-frame {
+    width: 100%;
+    height: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #00ff00;
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+    background: rgba(0,0,0,0.85);
+    color: #00ff00;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsive Menu */
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        display: none;
+        background: rgba(0,0,0,0.9);
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 200px;
+        padding: 10px 0;
+    }
+    nav ul li { text-align: center; margin: 10px 0; }
+    .menu-toggle { display: block; }
+    nav ul.show { display: flex; }
+}
+
+/* Animations */
+@keyframes fadeIn { from { opacity:0; transform:translateY(20px);} to { opacity:1; transform:translateY(0);} }
+
+/* Light Theme */
+body.light { color: #111; }
+body.light section { background: rgba(255,255,255,0.9); color: #111; }
+body.light .btn { background: #111; color: #00ff00; }
+body.light header, body.light footer, body.light .theme-toggle { background: rgba(255,255,255,0.85); color: #111; }    box-shadow: 0 0 20px #00ff00;
 }
 
 /* Buttons */
