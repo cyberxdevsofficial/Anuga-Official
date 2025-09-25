@@ -1,24 +1,20 @@
-/* General Settings */
+/* General Styles */
 body {
     font-family: 'Orbitron', sans-serif;
     margin: 0;
     padding: 0;
-    transition: all 0.5s ease;
-    background: #000; /* Hacker style dark background */
-    color: #00ff00; /* Neon green text */
+    background: black;
+    color: #00ff00;
     overflow-x: hidden;
+    position: relative;
 }
 
-/* Hacker Background Animation */
-body::before {
-    content: '';
+/* Hacker Matrix Canvas */
+canvas#matrix {
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: url('https://i.imgur.com/Yxk9Y7C.png'); /* matrix-like background */
-    opacity: 0.2;
+    top: 0;
+    left: 0;
     z-index: -1;
-    background-size: cover;
 }
 
 /* Theme Toggle */
@@ -37,7 +33,7 @@ body::before {
 
 /* Header / Navigation */
 header {
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.85);
     color: #00ff00;
     padding: 20px;
     display: flex;
@@ -103,6 +99,85 @@ section ul li {
 
 .project {
     background: rgba(0,0,0,0.7);
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 0 20px #00ff00;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    background: #00ff00;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #00cc00;
+}
+
+/* Footer */
+footer {
+    background: rgba(0,0,0,0.85);
+    color: #00ff00;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsive Menu */
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        display: none;
+        background: rgba(0,0,0,0.9);
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 200px;
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+/* Light Theme */
+body.light {
+    background: #f0f0f0;
+    color: #111;
+}
+
+body.light section h2,
+body.light nav ul li a,
+body.light footer,
+body.light .btn {
+    color: #111;
+}
+
+body.light .btn {
+    background: #111;
+    color: #00ff00;
+    }    background: rgba(0,0,0,0.7);
     padding: 20px;
     border-radius: 10px;
     width: 250px;
